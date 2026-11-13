@@ -1,0 +1,18 @@
+web/README.md
+# LODGIT Web Application
+This folder contains the frontend website for LODGIT.
+## Technologies
+- Next.js
+- React
+- TypeScript
+- CSS
+
+## Features
+- Homepage
+- Property listings
+- Property details and photo gallery
+- Login and signup
+- Guest dashboard
+
+## Development
+Frontend development is currently in progress.
