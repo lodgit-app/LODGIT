@@ -1,0 +1,27 @@
+# Downloaded building blocks (huge, and anyone can re-download them)
+node_modules/
+
+# Secret keys: never upload these
+.env
+.env.*
+!.env.example
+
+# Files created when the apps are built
+.next/
+.expo/
+.turbo/
+dist/
+build/
+out/
+coverage/
+
+# Supabase files that only matter on your laptop
+supabase/.temp/
+supabase/.branches/
+
+# Computer and editor clutter
+.DS_Store
+Thumbs.db
+*.log
+.vscode/*
+!.vscode/extensions.json
