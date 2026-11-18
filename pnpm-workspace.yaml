@@ -1,3 +1,5 @@
 packages:
   - "apps/*"
   - "packages/*"
+  # The phone app uses npm for now. Abu will remove this line when it moves to pnpm
+  - "!apps/mobile"
