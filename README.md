@@ -15,7 +15,7 @@ A short-stay booking app for web, iOS and Android. Book with friends, split the 
 ## Tech
 
 - **Website:** Next.js
-- **Phone app:** Expo (React Native)
+- **Phone app:** Expo SDK 58 (React Native) with Expo Router
 - **Database, logins and photos:** Supabase
 - **Payments:** Stripe (test mode)
 - **Error tracking:** Sentry
@@ -26,7 +26,7 @@ A short-stay booking app for web, iOS and Android. Book with friends, split the 
 ```
 LODGIT/
 ├── apps/
-│   ├── web/          Website (Bugs)
+│   ├── web/          Website (Bugs), coming soon
 │   └── mobile/       Phone app (Abu)
 ├── packages/
 │   └── shared/       Shared labels and money rules, used by web and phone
@@ -43,6 +43,7 @@ LODGIT/
 - [Node.js 26 LTS](https://nodejs.org)
 - pnpm: run `npm install -g pnpm`
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) (only needed for database work)
+- [Expo Go](https://expo.dev/go) on your phone (only needed to test the phone app)
 
 ### 2. Download the project
 
@@ -74,6 +75,22 @@ Copy `.env.example`, rename the copy to `.env` and fill in the values. Ask Afeez
 
 Only the publishable keys and Sentry DSNs get a prefix. Keys marked **SERVER ONLY** never go in website or phone code.
 
+## Run the phone app
+
+The phone app still uses npm for now. It will move to pnpm soon.
+
+```bash
+cd apps/mobile
+npm install
+npx expo start
+```
+
+Scan the QR code with Expo Go. Several phones can scan the same code.
+
+If a phone can't reach the computer, stop the server and run `npx expo start --tunnel`. If Expo asks you to sign in, use the same account in Expo Go and in the Expo CLI (`npx expo login`).
+
+**Screens:** every file in `apps/mobile/src/app` is a screen. `_layout.tsx` controls how those screens are arranged.
+
 ## Using the shared labels
 
 The labels from the database plan live in `packages/shared`. Use them in the website and phone app like this:
@@ -103,4 +120,4 @@ Nobody changes `main` directly.
 - Money is saved in pence as whole numbers. £120 is `12000`
 - All times are saved in UTC
 - Database changes only through migration files
-- Use pnpm, not npm, inside the project
+- Use pnpm, not npm, inside the project (the phone app is the one exception, until it moves over)
